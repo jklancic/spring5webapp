@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+</head>
+<body>
+<h1>Addresses</h1>
+
+<table>
+    <tr>
+        <th>UUID</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>Postal code</th>
+        <th>Country</th>
+    </tr>
+    <tr th:each="address: ${addresses}">
+        <td th:text="${address.uuid}"></td>
+        <td th:text="${address.street}"></td>
+        <td th:text="${address.city}"></td>
+        <td th:text="${address.postalCode}"></td>
+        <td th:text="${address.country}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
