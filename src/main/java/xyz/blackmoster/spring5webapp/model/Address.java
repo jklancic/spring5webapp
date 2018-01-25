@@ -7,27 +7,25 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Company {
-	
+public class Address {
+
 	@Id
 	@GeneratedValue(generator = "UUID")
 	@GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
 	@Column(name = "uuid", updatable = false, nullable = false)
 	private UUID uuid;
 	
-	private String name;
+	private String street;
 	
-	private String link;
+	private String city;
 	
-	@ManyToOne
-	@JoinColumn(name = "addressUuid", nullable = false)
-	private Address address;
+	private String postalCode;
+	
+	private String country;
 
 	public UUID getUuid() {
 		return uuid;
@@ -37,36 +35,44 @@ public class Company {
 		this.uuid = uuid;
 	}
 
-	public String getName() {
-		return name;
+	public String getStreet() {
+		return street;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setStreet(String street) {
+		this.street = street;
 	}
 
-	public String getLink() {
-		return link;
+	public String getCity() {
+		return city;
 	}
 
-	public void setLink(String link) {
-		this.link = link;
+	public void setCity(String city) {
+		this.city = city;
 	}
 
-	public Address getAddress() {
-		return address;
+	public String getPostalCode() {
+		return postalCode;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
-		Company company = (Company) o;
-		return Objects.equals(uuid, company.uuid);
+		Address address = (Address) o;
+		return Objects.equals(uuid, address.uuid);
 	}
 
 	@Override
@@ -77,10 +83,12 @@ public class Company {
 
 	@Override
 	public String toString() {
-		return "Company{" +
+		return "Address{" +
 			"uuid=" + uuid +
-			", name='" + name + '\'' +
-			", link='" + link + '\'' +
+			", street='" + street + '\'' +
+			", city='" + city + '\'' +
+			", postalCode='" + postalCode + '\'' +
+			", country='" + country + '\'' +
 			'}';
 	}
 }
