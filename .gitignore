@@ -9,6 +9,7 @@
 .project
 .settings
 .springBeans
+*.bat
 
 ### IntelliJ IDEA ###
 .idea
