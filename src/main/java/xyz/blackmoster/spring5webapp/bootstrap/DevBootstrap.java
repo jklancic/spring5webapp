@@ -1,5 +1,9 @@
 package xyz.blackmoster.spring5webapp.bootstrap;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -31,8 +35,10 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 		this.addressRepository = addressRepository;
 	}
 
-	private void initData() {
-
+	private void initData() throws ParseException {
+		
+		DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		
 		Address address1 = new Address();
 		address1.setCity("Maribor");
 		address1.setCountry("Slovenia");
@@ -50,6 +56,8 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 		experience1.setCompany(company1);
 		experience1.setTitle("Junior Software Developer");
 		experience1.setDescription("Developing game platform");
+		experience1.setStarted(formatter.parse("01/02/2008"));
+		experience1.setEnded(formatter.parse("30/04/2010"));
 		workExperienceRepository.save(experience1);
 
 		Address address2 = new Address();
@@ -69,6 +77,8 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 		experience2.setCompany(company2);
 		experience2.setTitle("Software Developer");
 		experience2.setDescription("Developing software support solutions");
+		experience2.setStarted(formatter.parse("01/05/2010"));
+		experience2.setEnded(formatter.parse("30/04/2010"));
 		workExperienceRepository.save(experience2);
 
 		Address address3 = new Address();
@@ -88,11 +98,17 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
 		experience3.setCompany(company3);
 		experience3.setTitle("Software Developer");
 		experience3.setDescription("Developing risk management suite");
+		experience3.setStarted(formatter.parse("01/05/2011"));
+		experience3.setEnded(formatter.parse("31/03/2014"));
 		workExperienceRepository.save(experience3);
 	}
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		initData();
+		try {
+			initData();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 }
