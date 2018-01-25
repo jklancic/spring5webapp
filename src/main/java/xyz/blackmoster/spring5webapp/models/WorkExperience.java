@@ -1,4 +1,4 @@
-package xyz.blackmoster.spring5webapp.model;
+package xyz.blackmoster.spring5webapp.models;
 
 import java.util.Date;
 import java.util.Objects;

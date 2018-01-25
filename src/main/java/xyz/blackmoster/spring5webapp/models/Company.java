@@ -1,4 +1,4 @@
-package xyz.blackmoster.spring5webapp.model;
+package xyz.blackmoster.spring5webapp.models;
 
 import java.util.Objects;
 import java.util.UUID;

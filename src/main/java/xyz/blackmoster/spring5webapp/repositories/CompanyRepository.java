@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.data.repository.CrudRepository;
 
-import xyz.blackmoster.spring5webapp.model.Company;
+import xyz.blackmoster.spring5webapp.models.Company;
 
 public interface CompanyRepository extends CrudRepository<Company, UUID> {
 }

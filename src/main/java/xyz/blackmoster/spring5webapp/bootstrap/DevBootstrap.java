@@ -9,9 +9,9 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import xyz.blackmoster.spring5webapp.model.Address;
-import xyz.blackmoster.spring5webapp.model.Company;
-import xyz.blackmoster.spring5webapp.model.WorkExperience;
+import xyz.blackmoster.spring5webapp.models.Address;
+import xyz.blackmoster.spring5webapp.models.Company;
+import xyz.blackmoster.spring5webapp.models.WorkExperience;
 import xyz.blackmoster.spring5webapp.repositories.AddressRepository;
 import xyz.blackmoster.spring5webapp.repositories.CompanyRepository;
 import xyz.blackmoster.spring5webapp.repositories.WorkExperienceRepository;
